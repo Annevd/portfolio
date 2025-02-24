@@ -1,0 +1,65 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import '../styles/markdown.css'
+const { frontmatter } = Astro.props;
+---
+<BaseLayout>
+
+    <h1>{frontmatter.description}</h1>
+
+    <div class="container">
+      <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+
+      <p>{frontmatter.date.toString().slice(0,10)}</p>
+
+      <div class="tags">
+        {frontmatter.tags.map((tag: string) => (
+          <p class="tag">{tag}</p>
+        ))}
+    </div>
+
+    <slot />
+  </div>
+  
+</BaseLayout>
+
+<style>
+
+  h1 {
+    font-size:  clamp(3rem, 6vw + 1rem, 5rem);
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    /* max-width: 32rem; */
+    margin: 0 auto;
+  }
+
+  img {
+    width: 100%;
+    max-height: 27rem;
+    object-fit: cover;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    border: 1px solid var(--accent-color);
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: 1.15em;
+  }
+
+  /* @media (width > 32rem){
+    .container {
+      max-width: 88rem;
+    }
+  } */
+
+</style>

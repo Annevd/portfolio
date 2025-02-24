@@ -1,0 +1,51 @@
+@font-face {
+    font-family: "MonaSans";
+    src: url(/fonts/Mona-Sans.ttf) format("truetype");
+    font-display: swap;
+    font-weight: 375;
+}
+
+@font-face {
+    font-family: "HubotSans";
+    src: url(/fonts/Hubot-Sans.ttf) format("truetype");
+    font-display: swap;
+    font-weight: 900;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    color-scheme: light dark;
+
+    --text-color: light-dark(#605D5D ,#EFEFEF); 
+    --background-color: light-dark(#EFEFEF, #212121);
+
+    --statement-font: "HubotSans", sans-serif;
+    --statement-font-width: "wdth" 80;
+    --regular-font: "MonaSans", sans-serif;
+    --regular-font-width: "wdth" 75;
+}
+
+body {
+    background: var(--background-color);
+}
+
+h1 {
+    color: var(--text-color);
+    font-family: var(--statement-font);
+    font-variation-settings: var(--font-variation-width);
+}
+
+p {
+    color: var(--text-color);
+    font-family: var(--regular-font);
+    font-variation-settings: var(--font-variation-width);
+}
+
+.caps {
+    text-transform: uppercase;
+}

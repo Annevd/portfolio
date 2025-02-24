@@ -1,0 +1,35 @@
+.container li {
+    list-style-type: disc;
+    list-style-position: inside;
+    color: white;
+    font-size: clamp(1rem, 2vw + 0.25rem, 1.25rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 3vw + 0.25rem, 1.25rem);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw + 0.25rem, 1.25rem);
+}
+
+h4 {
+    font-size: clamp(1.25rem, 3vw + 0.25rem, 1.25rem);
+}
+
+blockquote {
+    width: fit-content;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    background: #9c5de58c;
+}
+
+ul:has(ul) ul {
+    margin-left: 1.5rem;
+}
+
+ul:has(ul) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

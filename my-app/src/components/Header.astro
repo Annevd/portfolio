@@ -1,6 +1,9 @@
 ---
 import DarkLightMode from "./icons/DarkLightMode.astro"
 import MenuArrow from "./icons/MenuArrow.astro"
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
 ---
 <header class="header">
     <a href="/" class="header__logo caps">AVD</a>
@@ -11,10 +14,10 @@ import MenuArrow from "./icons/MenuArrow.astro"
       </div>
       <nav class="header__nav">
           <ul class="header__list">
-              <li><a href="/archive" class="header__link caps">Archive</a></li>
-              <li><a href="/blog" class="header__link caps">We love web</a></li>
-              <li><a href="/gallery" class="header__link caps">Gallery</a></li>
-              <li><a href="/about" class="header__link caps">About</a></li>
+              <li><a href="/archive" class={`header__link caps ${currentPath === "archive" ? "active" : ""}`}>Archive</a></li>
+              <li><a href="/blog" class={`header__link caps ${currentPath === "blog" ? "active" : ""}`}>We love web</a></li>
+              <li><a href="/gallery" class={`header__link caps ${currentPath === "gallery" ? "active" : ""}`}>Gallery</a></li>
+              <li><a href="/about" class={`header__link caps ${currentPath === "about" ? "active" : ""}`}>About</a></li>
           </ul>
       </nav>
     </div>
@@ -72,7 +75,6 @@ import MenuArrow from "./icons/MenuArrow.astro"
 .header__list {
   display: flex;
   flex-direction: column;
-  /* align-self: flex-start; */
   justify-self: center;
   gap: calc(var(--gap) * 2);
 }
@@ -81,6 +83,10 @@ import MenuArrow from "./icons/MenuArrow.astro"
     font-family: var(--statement-font);
     font-variation-settings: var(--statement-font-width);
     font-size: max(3.5rem, 2vw);
+}
+
+.header__link.active {
+  text-decoration: underline;
 }
 
 .is-rotating {

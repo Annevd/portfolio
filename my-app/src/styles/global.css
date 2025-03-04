@@ -32,6 +32,8 @@
     --background-color: light-dark(#EFEFEF, #212121);
     --grid-color: light-dark(#A4A4A4, #5C5C5C);
 
+    --grid-blend-mode: light-dark(darken, lighten);
+
     --statement-font: "HubotSans", sans-serif;
     --statement-font-width: "wdth" 80;
 
@@ -48,8 +50,27 @@
     --header-height: calc(var(--spacing-border) * 3.75);
 }
 
+.light-mode {
+    --text-color: #605D5D;
+    --background-color: #EFEFEF;
+    --grid-color: #A4A4A4;
+    --grid-blend-mode: darken;
+  }
+  
+.dark-mode {
+    --text-color: #EFEFEF;
+    --background-color: #212121;
+    --grid-color: #5C5C5C;
+    --grid-blend-mode: lighten;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: var(--background-color);
+    color: var(--text-color);
 }
 
 body::before {
@@ -62,6 +83,15 @@ body::before {
     outline-offset: -0.15rem; 
     pointer-events: none;
     z-index: 9999;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url('/images/noise.png');
+    pointer-events: none;
+    opacity: 0.05;
 }
 
 main {

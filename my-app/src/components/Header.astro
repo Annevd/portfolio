@@ -6,7 +6,7 @@ import MenuArrow from "./icons/MenuArrow.astro"
     <a href="/" class="header__logo caps">AVD</a>
     <div class="header__right">
       <div class="header__buttons">
-        <DarkLightMode size="max(2rem, 3vw)"/>
+        <button class="header__theme-trigger"><DarkLightMode size="max(2rem, 3vw)"/></button>
         <button class="header__menu-trigger"><MenuArrow size="3rem"/></button>
       </div>
       <nav class="header__nav">
@@ -60,7 +60,7 @@ import MenuArrow from "./icons/MenuArrow.astro"
   left: 0;
   right: 0;
   background: var(--background-color);
-  height: calc(100lvh - var( --header-height));
+  min-height: calc(100lvh - var( --header-height));
   padding: var(--spacing-border);
   padding-bottom:  var(--header-height);
   transform: translateX(-100%);
@@ -120,7 +120,7 @@ import MenuArrow from "./icons/MenuArrow.astro"
     left: unset;
     right: unset;
     background: none;
-    height: auto;
+    min-height: auto;
     padding: unset;
     padding-bottom: unset;
     transition: unset;
@@ -149,6 +149,26 @@ import MenuArrow from "./icons/MenuArrow.astro"
     menu?.classList.toggle('is-open');
     menuTrigger?.classList.toggle('is-rotating');
   })
+
+  const themeTrigger = document.querySelector('.header__theme-trigger')
+  const body = document.body
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme) {
+    body.classList.add(savedTheme);
+  }
+
+  themeTrigger?.addEventListener("click", () => {
+  if (body.classList.contains("dark-mode")) {
+    body.classList.remove("dark-mode");
+    body.classList.add("light-mode");
+    localStorage.setItem("theme", "light-mode");
+  } else {
+    body.classList.remove("light-mode");
+    body.classList.add("dark-mode");
+    localStorage.setItem("theme", "dark-mode");
+  }
+});
 
 
 </script>

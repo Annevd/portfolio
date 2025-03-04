@@ -1,0 +1,15 @@
+---
+export interface Props {
+  size?: string;
+}
+
+const { size = "5em" } = Astro.props;
+---
+<svg xmlns="http://www.w3.org/2000/svg" width={size} height="auto" fill="none" viewBox="0 0 38 38"><path fill="currentColor" d="M8.636 22.454v1.728h20.727v-1.727h-1.727v-1.728H25.91V19h-1.727v-1.727h-1.728v-1.728h-1.727v-1.727h-3.454v1.727h-1.728v1.728h-1.727V19h-1.727v1.727h-1.727v1.727"/></svg>
+
+<style>
+svg {
+    color: var(--text-color, #EFEFEF);
+    max-height: min-content;
+}
+</style>

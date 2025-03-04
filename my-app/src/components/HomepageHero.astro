@@ -1,0 +1,84 @@
+---
+import Star from "./icons/Star.astro"
+---
+<div class="homepage-header">
+    <h1 class="homepage-header__title caps">
+        <div class="homepage-header--first-name">Anne <Star size="max(3.5rem, 12vw)" /></div> <!-- 9rem -->
+        <div class="homepage-header--last-name">van Dijk</div>
+    </h1>
+
+    <div class="homepage-header__text">
+        <p class="homepage-header__description caps">Aspiring creative developer</p>
+        <p class="homepage-header__description caps">About me, my frontend work, We-love-web talks I've visited and all of my other creations.</p>
+    </div>
+</div>
+
+
+<style>
+
+.homepage-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* gap: calc(var(--gap) * 2); */
+    /* grid-column: 1/13; */
+    margin: var(--header-height) var(--spacing-border) var(--spacing-border) var(--spacing-border);
+    min-height: calc(100lvh - var(--header-height) - var(--spacing-border));
+}
+
+.homepage-header__title {
+    display: flex;
+    flex-direction: column;
+    font-size: max(4rem, 21vw);
+    margin: auto 0;
+    /* grid-column: 1/13; */
+}
+
+.homepage-header--first-name {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--gap) * 3);
+}
+
+.homepage-header--last-name {
+    /* align-self: flex-end; */
+    text-box: trim-start cap alphabetic;
+
+}
+
+.homepage-header__text {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--gap) * 2);
+    font-size: max(1.5rem, 2vw);
+}
+
+.homepage-header__description:first-of-type {
+    font-family: var(--regular-font-bold);
+}
+
+.homepage-header__description:last-of-type {
+    /* max-width: 35vw; */
+}
+
+@media (width > 768px) {
+    .homepage-header--last-name {
+        align-self: flex-end;
+    }
+
+    .homepage-header__text {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        font-size: max(1rem, 2vw);
+    }
+    .homepage-header__description:first-of-type {
+        font-family: var(--regular-font-thin);
+    }
+
+    .homepage-header__description:last-of-type {
+        max-width: max(18rem, 33vw);
+        justify-self: flex-end;
+    }
+}
+
+</style>

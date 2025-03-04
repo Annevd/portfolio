@@ -1,0 +1,16 @@
+---
+export interface Props {
+  size?: string;
+}
+
+const { size = "5em" } = Astro.props;
+---
+
+<svg xmlns="http://www.w3.org/2000/svg" width={size} height="auto" fill="none" viewBox="0 0 133 106"><path fill="currentColor" stroke="currentColor" stroke-width="8" d="M66.5 19.3c-3.748 8.63-9.927 16.085-17.656 22.005C42.252 46.354 34.503 50.319 26.072 53c8.43 2.681 16.18 6.646 22.772 11.695 7.73 5.92 13.908 13.376 17.656 22.004 3.749-8.628 9.927-16.084 17.656-22.004C90.75 59.646 98.498 55.682 106.93 53c-8.43-2.681-16.18-6.646-22.773-11.695C76.427 35.385 70.25 27.929 66.5 19.3Z"/></svg>
+
+<style>
+svg {
+    color: var(--text-color, #EFEFEF);
+    max-height: min-content;
+}
+</style>

@@ -1,8 +1,15 @@
 @font-face {
-    font-family: "MonaSans";
+    font-family: "MonaSansThin";
     src: url(/fonts/Mona-Sans.ttf) format("truetype");
     font-display: swap;
-    font-weight: 375;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "MonaSansBold";
+    src: url(/fonts/Mona-Sans.ttf) format("truetype");
+    font-display: swap;
+    font-weight: 700;
 }
 
 @font-face {
@@ -23,29 +30,85 @@
 
     --text-color: light-dark(#605D5D ,#EFEFEF); 
     --background-color: light-dark(#EFEFEF, #212121);
+    --grid-color: light-dark(#A4A4A4, #5C5C5C);
 
     --statement-font: "HubotSans", sans-serif;
     --statement-font-width: "wdth" 80;
-    --regular-font: "MonaSans", sans-serif;
+
+    --regular-font-thin: "MonaSansThin", sans-serif;
+    --regular-font-bold: "MonaSansBold", sans-serif;
     --regular-font-width: "wdth" 75;
+
+    --corner-radius: 2rem;
+    --border-thickness: 0.5rem;
+
+    --gap: 1rem;
+    --spacing: 1rem;
+    --spacing-border: calc(var(--spacing) + var(--border-thickness));
+    --header-height: calc(var(--spacing-border) * 3.75);
 }
 
 body {
     background: var(--background-color);
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    outline: 1rem solid var(--text-color);
+    border: var(--border-thickness) solid var(--text-color);
+    border-radius: var(--corner-radius);
+    outline-offset: -0.15rem; 
+    pointer-events: none;
+    z-index: 9999;
+}
+
+main {
+    display: grid;
+    /* grid-template-columns: repeat(12, 1fr); */
+    grid-template-columns: 1fr;
+    /* grid-template-rows: auto 13.8888888889vw auto; */
+}
+
 h1 {
     color: var(--text-color);
     font-family: var(--statement-font);
-    font-variation-settings: var(--font-variation-width);
+    font-variation-settings: var(--statement-font-width);
 }
 
 p {
     color: var(--text-color);
-    font-family: var(--regular-font);
-    font-variation-settings: var(--font-variation-width);
+    font-family: var(--regular-font-thin);
+    font-variation-settings: var(--regular-font-width);
 }
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    border: none;
+    background: none;
+    appearance: none;
+  }
 
 .caps {
     text-transform: uppercase;
+}
+
+@media (width > 768px) {
+    :root {
+        --border-thickness: 0.75rem;
+        --header-height: calc(var(--spacing-border) * 2.75);
+    }
+
+    /* main {
+        min-height: calc(100lvh - var(--header-height) * 1.5);
+    } */
 }

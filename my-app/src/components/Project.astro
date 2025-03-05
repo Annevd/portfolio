@@ -1,0 +1,73 @@
+---
+const {className="", title, url, image, description, tags, date, githubUrl } = Astro.props;
+---
+
+<li class={"project" + className}>
+    <div class="project__container">
+        <div class="title__container">
+            <h2 class="project__title caps">{title}</h2>
+            <p class="project__date caps">{new Date(date).getFullYear()}</p>
+        </div>
+        <div class="link__container">
+            <a class="project__link caps" href={url}>Live</a>
+            <a class="project__link caps" href={githubUrl}>Github</a>
+        </div>
+    </div>
+</li>
+
+<style>
+
+.project{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--text-color);
+}
+
+.project__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--background-color);
+    border-radius: calc(var(--corner-radius) / 1.5 );
+    width: 95%;
+    height: 95%;
+    padding: 1rem;
+}
+
+.title__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.project__title {
+    font-size: max(2rem, 3vw);
+    text-align: center;
+}
+
+.project__date, 
+.project__link {
+    font-family: var(--statement-font);
+    font-variation-settings: var(--statement-font-width);
+    font-size: max(1.5rem, 2vw);
+}
+
+.link__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.project__link {
+    text-decoration: underline;
+}
+
+
+@media (width > 768px) {
+
+}
+</style>

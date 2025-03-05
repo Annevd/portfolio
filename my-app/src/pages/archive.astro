@@ -1,5 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Project from '../components/Project.astro';
+const allProjects = await Astro.glob('../pages/projects/*.md');
+
+allProjects.sort((a, b) => {
+  const dateA = new Date(a.frontmatter.date).getTime();
+  const dateB = new Date(b.frontmatter.date).getTime();
+  return dateB - dateA;
+});
 ---
+
 <BaseLayout>
+    <section class="project__container">
+        {allProjects.map((project) => <Project url={project.frontmatter.url} title={project.frontmatter.title} image={project.frontmatter.image} 
+      description={project.frontmatter.description} tags={project.frontmatter.tags} date={project.frontmatter.date} githubUrl={project.frontmatter.githubUrl}/>)}
+    </section>
 </BaseLayout>
+
+<style>
+
+@media (width > 768px) {
+    .project__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-rows: calc(100vh / 3); 
+        margin: var(--header-height) var(--spacing-border) var(--spacing-border) var(--spacing-border);
+    }
+}
+</style>

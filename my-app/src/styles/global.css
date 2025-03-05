@@ -91,17 +91,17 @@ body::after {
     inset: 0;
     background-image: url('/images/noise.png');
     pointer-events: none;
-    opacity: 0.05;
+    opacity: 0.03;
 }
 
 main {
-    display: grid;
+    /* display: grid; */
     /* grid-template-columns: repeat(12, 1fr); */
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
     /* grid-template-rows: auto 13.8888888889vw auto; */
 }
 
-h1 {
+h1, h2 {
     color: var(--text-color);
     font-family: var(--statement-font);
     font-variation-settings: var(--statement-font-width);
@@ -135,6 +135,8 @@ button {
 @media (width > 768px) {
     :root {
         --border-thickness: 0.75rem;
+        --gap: 2rem;
+        --spacing: 2rem;
         --header-height: calc(var(--spacing-border) * 2.75);
     }
 

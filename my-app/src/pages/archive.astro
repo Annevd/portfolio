@@ -11,6 +11,7 @@ allProjects.sort((a, b) => {
 ---
 
 <BaseLayout>
+  <h1 class="page__title caps">Archive</h1>
     <section class="project__container">
         {allProjects.map((project) => <Project url={project.frontmatter.url} title={project.frontmatter.title} image={project.frontmatter.image} 
       description={project.frontmatter.description} tags={project.frontmatter.tags} date={project.frontmatter.date} githubUrl={project.frontmatter.githubUrl}/>)}
@@ -19,12 +20,25 @@ allProjects.sort((a, b) => {
 
 <style>
 
+.page__title {
+  margin: var(--header-height) var(--spacing-border) var(--spacing-border) var(--spacing-border);
+  font-size: max(4rem, 10vw);
+  text-align: center;
+}
+
+.project__container {
+  display: grid;
+  grid-template-columns:  repeat( auto-fit, minmax(15rem, 1fr) );
+  grid-auto-rows: clamp(17rem, 17vh, 30vh);
+  margin: var(--spacing-border);
+}
+
 @media (width > 768px) {
-    .project__container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-auto-rows: calc(100vh / 3); 
-        margin: var(--header-height) var(--spacing-border) var(--spacing-border) var(--spacing-border);
-    }
+
+  .project__container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-auto-rows: clamp(18rem,10vh + 18rem,40rem);
+  }
 }
 </style>

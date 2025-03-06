@@ -1,8 +1,8 @@
 ---
-const {className="", title, url, image, description, tags, date, githubUrl } = Astro.props;
+const {title, url, image, description, tags, date, githubUrl } = Astro.props;
 ---
 
-<li class={"project" + className}>
+<li class="project">
     <div class="project__container">
         <div class="title__container">
             <h2 class="project__title caps">{title}</h2>
@@ -17,11 +17,30 @@ const {className="", title, url, image, description, tags, date, githubUrl } = A
 
 <style>
 
-.project{
+.project {
     display: flex;
     justify-content: center;
     align-items: center;
     background: var(--text-color);
+    margin: 0.5rem;
+    min-height: 12.5rem;
+    /* max-width: 20rem; */
+}
+
+.project:nth-child(even) {
+    background: var(--background-color);
+    border: 1px solid var(--text-color);
+
+    .project__container {
+        background: var(--text-color);
+    }
+
+    .project__title,
+    .project__date,
+    .project__link {
+        color: var(--background-color); 
+    }
+
 }
 
 .project__container {
@@ -47,6 +66,7 @@ const {className="", title, url, image, description, tags, date, githubUrl } = A
 .project__title {
     font-size: max(2rem, 3vw);
     text-align: center;
+    color: var(--text-color);
 }
 
 .project__date, 
@@ -54,6 +74,7 @@ const {className="", title, url, image, description, tags, date, githubUrl } = A
     font-family: var(--statement-font);
     font-variation-settings: var(--statement-font-width);
     font-size: max(1.5rem, 2vw);
+    color: var(--text-color);
 }
 
 .link__container {

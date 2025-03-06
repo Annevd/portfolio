@@ -99,6 +99,7 @@ main {
     /* grid-template-columns: repeat(12, 1fr); */
     /* grid-template-columns: 1fr; */
     /* grid-template-rows: auto 13.8888888889vw auto; */
+    margin-top: var(--header-height);
 }
 
 h1, h2 {

@@ -47,7 +47,7 @@
     --gap: 1rem;
     --spacing: 1rem;
     --spacing-border: calc(var(--spacing) + var(--border-thickness));
-    --header-height: calc(var(--spacing-border) * 3.75);
+    --header-height: 5rem;
 }
 
 .light-mode {
@@ -99,7 +99,7 @@ main {
     /* grid-template-columns: repeat(12, 1fr); */
     /* grid-template-columns: 1fr; */
     /* grid-template-rows: auto 13.8888888889vw auto; */
-    margin-top: var(--header-height);
+    /* margin-top: var(--header-height); */
 }
 
 h1, h2 {
